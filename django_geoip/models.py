@@ -97,6 +97,8 @@ class IpRangeManager(models.Manager):
     def get_query_set(self):
         return IpRangeQuerySet(self.model)
 
+    get_queryset = get_query_set
+
     def __getattr__(self, attr, *args):
         # see https://code.djangoproject.com/ticket/15062 for details
         if attr.startswith("_"):
